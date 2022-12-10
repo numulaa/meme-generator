@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import memesData from "./memesData";
+import React, { useState, useEffect } from "react";
 
 export default function Form() {
   const [meme, setMeme] = useState({
@@ -8,12 +7,22 @@ export default function Form() {
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
 
-  const [allMemeImages, setAllMemeImages] = useState(memesData);
+  const [allMemeImages, setAllMemeImages] = useState([]);
+  useEffect(() => {
+    // fetch("https://api.imgflip.com/get_memes")
+    //   .then((res) => res.json())
+    //   .then((data) => setAllMemeImages(data.data.memes));
+    async function getMemes() {
+      const res = await fetch("https://api.imgflip.com/get_memes");
+      const data = await res.json();
+      setAllMemeImages(data.data.memes);
+    }
+    getMemes();
+  }, []);
 
   function getMemeImg() {
-    const memesArray = allMemeImages.data.memes;
-    const randomNum = Math.floor(Math.random() * memesArray.length);
-    const url = memesArray[randomNum].url;
+    const randomNum = Math.floor(Math.random() * allMemeImages.length);
+    const url = allMemeImages[randomNum].url;
 
     setMeme((prevMeme) => ({
       ...prevMeme,
