@@ -24,10 +24,15 @@ nav {
 main {
   padding: 2.25rem;
 }
+
 .form {
   display: grid;
   grid-template: 40px 40px / 1fr 1fr;
   gap: 1rem;
+}
+.form > ul,
+.form > h2 {
+  display: none;
 }
 .form-inputs,
 .form-button {
@@ -48,10 +53,13 @@ main {
 }
 .meme-image {
   max-width: 100%;
+  max-height: 100%;
 }
 
 .meme {
   position: relative;
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 }
 .meme-text {
@@ -76,4 +84,37 @@ main {
 }
 .bottom-text {
   bottom: 0;
+}
+@media (min-width: 900px) {
+  .form-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    padding: 3rem;
+  }
+  .form > ul {
+    margin-bottom: 1rem;
+  }
+  .form > ul,
+  .form > h2 {
+    display: block;
+  }
+  .form-button {
+    display: block;
+  }
+  .form-inputs,
+  .form-button {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .meme {
+    margin-top: 0;
+    flex-basis: 50%;
+    height: 80vh;
+  }
 }

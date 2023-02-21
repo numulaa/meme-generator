@@ -38,8 +38,14 @@ export default function Form() {
     }));
   }
   return (
-    <main>
+    <main className="form-section">
       <div className="form">
+        <h2>How to Play?</h2>
+        <ul>
+          <li>Generate a new picture by clicking the purple button</li>
+          <li>Type out anything you want in the input section</li>
+          <li>The text will be displayed on the image</li>
+        </ul>
         <input
           type="text"
           placeholder="Top text"
