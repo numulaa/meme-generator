@@ -89,7 +89,7 @@ main {
   .form-section {
     display: flex;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
   }
   .form {
     display: flex;
